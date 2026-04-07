@@ -98,6 +98,7 @@ release_lock() {
     return
   fi
   rm -f "$LOCK_FILE"
+  rmdir "$STATE_LOCK_DIR" 2>/dev/null || true
 }
 
 trap release_lock EXIT
